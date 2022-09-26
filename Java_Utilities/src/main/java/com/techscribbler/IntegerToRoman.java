@@ -2,10 +2,6 @@ package com.techscribbler;
 
 public class IntegerToRoman {
 
-    public static void main(String[] args) {
-        IntegerToRoman integerToRoman=new IntegerToRoman();
-        System.out.println(integerToRoman.intToRoman(918));
-    }
     public String intToRoman(Integer value) {
         String grand = "";
         while (value != 0) {
