@@ -10,7 +10,7 @@ public class IntegerToRoman {
                 grand = grand + "M";
                 value = value - 1000;
             }
-            if (value >= 500) {
+            else if (value >= 500) {
                 if (value >= 900) {
                     grand = grand + "CM";
                     value = value - 900;
@@ -19,11 +19,16 @@ public class IntegerToRoman {
                     value = value - 500;
                 }
             }
-            if (value >= 100) {
-                grand = grand + "C";
-                value = value - 100;
+            else if (value >= 100) {
+                if(value >=400){
+                    grand=grand +"CD";
+                    value=value-400;
+                }else{
+                    grand = grand + "C";
+                    value = value - 100;
+                }
             }
-            if (value >= 50) {
+            else if (value >= 50) {
                 if (value >= 90) {
                     grand = grand + "XC";
                     value = value - 90;
@@ -32,7 +37,7 @@ public class IntegerToRoman {
                     value = value - 50;
                 }
             }
-            if (value >= 10) {
+            else if (value >= 10) {
                 if (value >= 40) {
                     grand = grand + "XL";
                     value = value - 40;
@@ -41,7 +46,7 @@ public class IntegerToRoman {
                     value = value - 10;
                 }
             }
-            if (value >= 5) {
+            else if (value >= 5) {
                 if (value >= 9) {
                     grand = grand + "IX";
                     value = value - 9;
@@ -50,7 +55,7 @@ public class IntegerToRoman {
                     value = value - 5;
                 }
             }
-            if (value >= 1) {
+            else if (value >= 1) {
                 if (value >= 4) {
                     grand = grand + "IV";
                     value = value - 4;
