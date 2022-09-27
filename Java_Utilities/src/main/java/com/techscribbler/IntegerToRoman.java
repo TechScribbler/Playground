@@ -5,7 +5,6 @@ public class IntegerToRoman {
     public String intToRoman(Integer value) {
         String grand = "";
         while (value != 0) {
-            System.out.println(value +"/"+ grand);
             if (value >= 1000) {
                 grand = grand + "M";
                 value = value - 1000;
