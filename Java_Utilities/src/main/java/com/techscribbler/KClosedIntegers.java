@@ -49,7 +49,7 @@ class DistanceComparator implements Comparable<DistanceComparator>{
     public void setValue(int value){
         this.value=value;
     }
- 
+
     public DistanceComparator (int index, int distance, int value){
         setDistance(distance);
         setIndex(index);
