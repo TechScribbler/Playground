@@ -4,22 +4,35 @@ import java.util.*;
 
 public class KClosedIntegers {
 
-    public List<Integer> findClosestElements(int[] sortedArr, int k, int x) {
-        List<DistanceComparator> distanceComparatorList = new ArrayList<>();
-        int i=0;
+    public static void main(String[] args) {
+        KClosedIntegers kClosedIntegers=new KClosedIntegers();
+        kClosedIntegers.findClosestElements(new int[]{1,2,3,4,5}, 4,-1);
+    }
 
-        for(int index=0;index<sortedArr.length;index++){
-            distanceComparatorList.add(new DistanceComparator(index,Math.abs(x-sortedArr[index]),sortedArr[index]));
-        }
-        Collections.sort(distanceComparatorList);
+    public List<Integer> findClosestElements(int[] sortedArr, int k, int x) {
+
+        int i=0;
+        List<DistanceComparator> distanceComparatorList=new ArrayList<>();
+        extracted(sortedArr, x,distanceComparatorList);
         List<Integer> res=new ArrayList<>();
-        for(i=0;i<distanceComparatorList.size() && k>0 ;i++, k--){
+        extracted(k, distanceComparatorList, res);
+        return res;
+    }
+
+    private static void extracted(int k, List<DistanceComparator> distanceComparatorList, List<Integer> res) {
+        int i;
+        for(i=0; i< distanceComparatorList.size() && k >0 ; i++, k--){
                 res.add(distanceComparatorList.get(i).value);
         }
-        //
         Collections.sort(res);
+    }
 
-        return res;
+    private static void extracted(int[] sortedArr, int x ,List<DistanceComparator> distanceComparatorList) {
+
+        for(int index = 0; index< sortedArr.length; index++){
+            distanceComparatorList.add(new DistanceComparator(index,Math.abs(x - sortedArr[index]), sortedArr[index]));
+        }
+        Collections.sort(distanceComparatorList);
     }
 }
 class DistanceComparator implements Comparable<DistanceComparator>{
