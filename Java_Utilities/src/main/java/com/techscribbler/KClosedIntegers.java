@@ -1,5 +1,5 @@
 package com.techscribbler;
-ß
+
 import java.util.*;
 
 public class KClosedIntegers {
@@ -16,6 +16,7 @@ public class KClosedIntegers {
         for(i=0;i<distanceComparatorList.size() && k>0 ;i++, k--){
                 res.add(distanceComparatorList.get(i).value);
         }
+        //
         Collections.sort(res);
 
         return res;
