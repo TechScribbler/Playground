@@ -1,0 +1,30 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /AWSIoTMQTTApplication
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: DEBUG
+    com.techscribbler.messaging: ${LOGGING_LEVEL:TRACE}
+awsmqttconfiguration:
+  region: ${IOT_REGION:us-east-1}
+  httpEndPoint: ${IOT_HTTP_ENDPOINT:102461617910-ats.iot.us-east-1.amazonaws.com}
+  awsAccessKey: ${AWS_ACCESS_KEY:xxxxxxxx}
+  awsSecretKey: ${AWS_SECRET_KEY:xxxxxxxxxxxxxxxx}
+  keepAlive: ${MQTT_KEEP_ALIVE_INTERVAL:60000}
+  threadCount: ${MQTT_CLIENT_THREAD_COUNT:5}
+  mqttQosLevel: ${MQTT_QOS_LEVEL:1}
+  fromDeviceTopic: ${MQTT_FROM_DEVICE_TOPIC:device/+/gateway/from_device}
+  toDeviceTopic: ${MQTT_TO_DEVICE_TOPIC:device/%s/gateway/to_device}
